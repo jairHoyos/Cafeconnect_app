@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import { Input } from "@/components/ui/input"
-import { Coffee, Eye, EyeOff, ArrowRight } from "lucide-react"
+import { Coffee, ArrowRight } from "lucide-react"
+import { createClient } from "@/lib/supabase/client"
 
 interface AuthViewProps {
   onLogin: () => void
@@ -10,33 +10,24 @@ interface AuthViewProps {
 }
 
 export function AuthView({ onLogin, onGuest }: AuthViewProps) {
-  const [isRegister, setIsRegister] = useState(false)
-  const [showPassword, setShowPassword] = useState(false)
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [name, setName] = useState("")
-  const [errors, setErrors] = useState({ name: "", email: "", password: "" })
+  const [isLoading, setIsLoading] = useState(false)
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
+  async function handleGoogleLogin() {
+    setIsLoading(true)
+    const supabase = createClient()
+    
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ?? 
+          `${window.location.origin}/auth/callback`,
+      },
+    })
 
-    const newErrors = { name: "", email: "", password: "" }
-
-    if (isRegister && !name.trim()) {
-      newErrors.name = "Debes llenar este campo."
+    if (error) {
+      console.error("Error al iniciar sesion con Google:", error.message)
+      setIsLoading(false)
     }
-    if (!email.trim()) {
-      newErrors.email = "Debes llenar este campo."
-    }
-    if (!password.trim()) {
-      newErrors.password = "Debes llenar este campo."
-    }
-
-    setErrors(newErrors)
-
-    if (newErrors.name || newErrors.email || newErrors.password) return
-
-    onLogin()
   }
 
   return (
@@ -50,7 +41,7 @@ export function AuthView({ onLogin, onGuest }: AuthViewProps) {
 
       <div className="relative z-10 flex w-full max-w-md flex-col items-center gap-6">
 
-        {/* Logo con animación */}
+        {/* Logo con animacion */}
         <div className="flex flex-col items-center gap-3 animate-logoEntry">
           <div
             className="animate-logoGlow"
@@ -83,7 +74,7 @@ export function AuthView({ onLogin, onGuest }: AuthViewProps) {
               textTransform: "uppercase",
               textShadow: "0 0 20px rgba(251, 191, 36, 0.3)",
             }}>
-            INGRESA Y DESCUBRE EL MEJOR CAFÉ COLOMBIANO
+            INGRESA Y DESCUBRE EL MEJOR CAFE COLOMBIANO
           </p>
         </div>
 
@@ -104,97 +95,58 @@ export function AuthView({ onLogin, onGuest }: AuthViewProps) {
             {/* Header */}
             <div className="flex flex-col items-center gap-1">
               <h2 className="font-[var(--font-playfair)] text-xl font-bold text-white">
-                {isRegister ? "Crear cuenta" : "Iniciar sesión"}
+                Bienvenido
               </h2>
               <p className="text-sm text-gray-200 text-center font-light tracking-wide">
-                {isRegister
-                  ? "Regístrate para guardar tus cafés favoritos"
-                  : "¡Bienvenido! Ingresa a tu cuenta para continuar"}
+                Inicia sesion para acceder a tu cuenta
               </p>
               <div className="mt-2 w-16 h-px bg-gradient-to-r from-transparent via-[#6b3e20] to-transparent" />
             </div>
 
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-              {isRegister && (
-                <div className="flex flex-col gap-1.5">
-                  <label className="text-xs font-semibold uppercase tracking-widest text-gray-200">
-                    Nombre completo
-                  </label>
-                  <Input
-                    type="text"
-                    placeholder="Tu nombre"
-                    value={name}
-                    onChange={(e) => { setName(e.target.value); setErrors(p => ({ ...p, name: "" })) }}
-                    className={`h-11 bg-[#241c16] border-[#3d2e22] text-white placeholder:text-[#6b5c4e] focus:border-amber-700 ${errors.name ? "border-red-500" : ""}`}
-                  />
-                  {errors.name && (
-                    <p className="text-xs text-red-400 mt-0.5">{errors.name}</p>
-                  )}
-                </div>
+            {/* Google Login Button */}
+            <button
+              type="button"
+              onClick={handleGoogleLogin}
+              disabled={isLoading}
+              className="h-12 w-full rounded-xl font-medium text-sm text-white transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{
+                background: "#fff",
+                border: "1px solid #e5e7eb",
+              }}
+            >
+              {isLoading ? (
+                <div className="h-5 w-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <>
+                  <svg className="h-5 w-5" viewBox="0 0 24 24">
+                    <path
+                      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                      fill="#4285F4"
+                    />
+                    <path
+                      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                      fill="#34A853"
+                    />
+                    <path
+                      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                      fill="#FBBC05"
+                    />
+                    <path
+                      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                      fill="#EA4335"
+                    />
+                  </svg>
+                  <span className="text-gray-700 font-medium">Continuar con Google</span>
+                </>
               )}
+            </button>
 
-              <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-semibold uppercase tracking-widest text-gray-200">
-                  Dirección de correo electrónico:
-                </label>
-                <Input
-                  type="email"
-                  placeholder="Ej: usuario123@gmail.com"
-                  value={email}
-                  onChange={(e) => { setEmail(e.target.value); setErrors(p => ({ ...p, email: "" })) }}
-                  className={`h-11 bg-[#241c16] border-[#3d2e22] text-white placeholder:text-[#6b5c4e] focus:border-amber-700 ${errors.email ? "border-red-500" : ""}`}
-                />
-                {errors.email && (
-                  <p className="text-xs text-red-400 mt-0.5">{errors.email}</p>
-                )}
-              </div>
-
-              <div className="flex flex-col gap-1.5">
-                <label className="text-xs font-semibold uppercase tracking-widest text-gray-200">
-                  Contraseña:
-                </label>
-                <div className="relative">
-                  <Input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Contraseña"
-                    value={password}
-                    onChange={(e) => { setPassword(e.target.value); setErrors(p => ({ ...p, password: "" })) }}
-                    className={`h-11 pr-10 bg-[#241c16] border-[#3d2e22] text-white placeholder:text-[#6b5c4e] focus:border-amber-700 ${errors.password ? "border-red-500" : ""}`}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6b5c4e] hover:text-amber-400 transition-colors"
-                  >
-                    {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                  </button>
-                </div>
-                {errors.password && (
-                  <p className="text-xs text-red-400 mt-0.5">{errors.password}</p>
-                )}
-              </div>
-
-              <button
-                type="submit"
-                className="h-11 w-full rounded-xl font-medium text-sm text-white transition-all"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #3d2510 0%, #6b3e20 50%, #3d2510 100%)",
-                  border: "1px solid #6b3e20",
-                }}
-                onMouseEnter={(e) =>
-                (e.currentTarget.style.background =
-                  "linear-gradient(135deg, #6b3e20 0%, #92400e 50%, #6b3e20 100%)")
-                }
-                onMouseLeave={(e) =>
-                (e.currentTarget.style.background =
-                  "linear-gradient(135deg, #3d2510 0%, #6b3e20 50%, #3d2510 100%)")
-                }
-              >
-                {isRegister ? "Registrarse" : "Iniciar sesión"}
-              </button>
-            </form>
+            {/* Separador */}
+            <div className="flex items-center gap-4">
+              <div className="flex-1 h-px bg-[#3d2e22]" />
+              <span className="text-xs text-gray-400 uppercase">o</span>
+              <div className="flex-1 h-px bg-[#3d2e22]" />
+            </div>
 
             {/* Invitado */}
             <button
@@ -205,18 +157,6 @@ export function AuthView({ onLogin, onGuest }: AuthViewProps) {
               Continuar como invitado
               <ArrowRight className="h-4 w-4" />
             </button>
-
-            {/* Toggle */}
-            <p className="text-center text-xs text-gray-200">
-              {isRegister ? "¿Ya tienes cuenta?" : "¿No tienes cuenta?"}{" "}
-              <button
-                type="button"
-                onClick={() => setIsRegister(!isRegister)}
-                className="font-semibold text-amber-400 hover:text-amber-200 transition-colors underline underline-offset-2"
-              >
-                {isRegister ? "Iniciar sesión" : "Registrarse"}
-              </button>
-            </p>
 
           </div>
         </div>
