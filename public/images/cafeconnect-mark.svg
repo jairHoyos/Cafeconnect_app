@@ -1,0 +1,18 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Marca CafeConnect</title>
+  <desc id="desc">Símbolo abstracto de una hoja y un grano de café</desc>
+  <defs>
+    <linearGradient id="bg" x1="16" y1="12" x2="82" y2="84" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8B6045"/>
+      <stop offset="1" stop-color="#4A2F21"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="31" y1="26" x2="67" y2="72" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F4D5A6"/>
+      <stop offset="1" stop-color="#D2691E"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="88" height="88" rx="28" fill="url(#bg)"/>
+  <path d="M31 61C25 48 29 33 46 25C62 18 73 27 66 43C59 58 45 68 31 61Z" fill="url(#mark)"/>
+  <path d="M31 69C42 57 52 45 64 28" stroke="#24150F" stroke-width="4" stroke-linecap="round"/>
+  <path d="M41 52C38 48 36 43 36 37M49 44C47 39 47 35 48 31M56 36C55 33 56 29 58 26" stroke="#6F4E37" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
+</svg>

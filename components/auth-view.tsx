@@ -52,11 +52,17 @@ export function AuthView({ onLogin, onGuest }: AuthViewProps) {
 
         {/* Logo con animación */}
         <div className="flex flex-col items-center gap-3 animate-logoEntry">
-          <img
-            src="/images/cafeconnect-logo.png"
-            alt="CafeConnect"
-            className="h-16 w-auto max-w-[240px] object-contain animate-logoGlow"
-          />
+          <div className="flex items-center gap-3 animate-logoGlow">
+            <img
+              src="/images/cafeconnect-mark.svg"
+              alt=""
+              aria-hidden="true"
+              className="h-16 w-16 object-contain"
+            />
+            <span className="font-[var(--font-playfair)] text-3xl font-bold tracking-tight text-white">
+              CafeConnect
+            </span>
+          </div>
 
           <p className="text-center text-xs tracking-wide animate-fadeInUp"
             style={{
