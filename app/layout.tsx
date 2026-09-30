@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next'
 import { Toaster } from 'sonner'
 import './globals.css'
 
+
 const playfair = Playfair_Display({
   subsets: ['latin'],
   variable: '--font-playfair',
