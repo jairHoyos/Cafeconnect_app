@@ -4,7 +4,7 @@ import { useState } from "react"
 import { ProductCard, type CoffeeProduct } from "@/components/product-card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { Coffee, LogOut, Search, SlidersHorizontal, ChevronDown } from "lucide-react"
+import { Coffee, LogOut, Search, SlidersHorizontal, ChevronDown, Sparkles } from "lucide-react"
 
 const COFFEE_PRODUCTS: CoffeeProduct[] = [
   {
@@ -345,35 +345,29 @@ export function CatalogView({ onLogout }: CatalogViewProps) {
       </main>
 
       {/* Footer */}
-      {/* Footer */}
-      <footer className="border-t border-[#3d2e22] bg-[#1a1410] mt-12">
-        <div className="mx-auto max-w-7xl px-4 py-6 lg:px-8">
-          <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
-
-            {/* Logo */}
-            <div className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-900/50 border border-[#6b3e20]">
-                <Coffee className="h-4 w-4 text-amber-500" />
-              </div>
-              <span className="text-sm font-semibold text-amber-200">CafeConnect</span>
+      <footer className="relative mt-16 overflow-hidden border-t border-amber-900/40 bg-[#120d0a]">
+        <div className="pointer-events-none absolute -left-20 -top-24 h-56 w-56 rounded-full bg-amber-700/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-16 bottom-0 h-48 w-48 rounded-full bg-orange-500/10 blur-3xl" />
+        <div className="relative mx-auto flex max-w-7xl flex-col items-center gap-5 px-4 py-9 text-center lg:px-8">
+          <div className="relative flex h-16 w-24 items-end justify-center">
+            <div className="absolute bottom-1 h-10 w-20 rounded-b-[1.4rem] rounded-t-lg border-2 border-amber-600/70 bg-gradient-to-b from-amber-500/20 to-[#26130b] shadow-[0_8px_24px_rgba(180,83,9,0.28)]">
+              <div className="absolute -right-5 top-2 h-5 w-6 rounded-r-full border-2 border-l-0 border-amber-600/70" />
+              <div className="absolute left-2 right-2 top-2 h-px bg-amber-300/40" />
             </div>
-
-            {/* Slogan shimmer */}
-            <p
-              className="text-xs tracking-wide text-center"
-              style={{
-                background: "linear-gradient(90deg, #b45309, #fcd34d, #fff, #fcd34d, #b45309)",
-                backgroundSize: "200% auto",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                animation: "shimmer 2.8s linear infinite",
-              }}
-            >
-              © 2026 CafeConnect · Café de origen, sabor sin fronteras
-            </p>
-
+            <span className="absolute bottom-12 left-8 h-6 w-1 rounded-full bg-gradient-to-t from-amber-400/50 to-transparent" style={{ animation: "steam 2.2s ease-in-out infinite" }} />
+            <span className="absolute bottom-13 left-12 h-8 w-1 rounded-full bg-gradient-to-t from-orange-300/40 to-transparent" style={{ animation: "steam 2.2s ease-in-out 0.7s infinite" }} />
+            <span className="absolute bottom-12 left-16 h-5 w-1 rounded-full bg-gradient-to-t from-amber-400/50 to-transparent" style={{ animation: "steam 2.2s ease-in-out 1.2s infinite" }} />
           </div>
+          <div className="flex items-center gap-2">
+            <Sparkles className="h-3.5 w-3.5 text-amber-400" />
+            <span className="font-[var(--font-playfair)] text-lg font-semibold text-amber-100">CafeConnect</span>
+            <Sparkles className="h-3.5 w-3.5 text-orange-400" />
+          </div>
+          <p className="max-w-sm text-xs leading-relaxed text-amber-100/50">
+            Café auténtico, tostado con pasión y preparado para acompañar tus mejores momentos.
+          </p>
+          <div className="h-px w-24 bg-gradient-to-r from-transparent via-amber-500/70 to-transparent" />
+          <p className="text-[10px] tracking-[0.18em] text-amber-200/40 uppercase">© 2026 · Café de origen, sabor sin fronteras</p>
         </div>
       </footer>
     </div>

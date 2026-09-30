@@ -85,6 +85,17 @@
   --color-coffee-light: var(--coffee-light);
 }
 
+@keyframes steam {
+  0%, 100% {
+    opacity: 0.25;
+    transform: translateY(3px) scaleY(0.85);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(-6px) scaleY(1.1);
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
