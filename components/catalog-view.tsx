@@ -363,13 +363,13 @@ export function CatalogView({ onLogout }: CatalogViewProps) {
             <p
              {/*  className="text-xs tracking-wide text-center" */}
               style={{
-                background: "linear-gradient(90deg, #b45309, #fcd34d, #fff, #fcd34d, #b45309)",
+          {/*      background: "linear-gradient(90deg, #b45309, #fcd34d, #fff, #fcd34d, #b45309)",
                 backgroundSize: "200% auto",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
                 animation: "shimmer 2.8s linear infinite",
-              }}
+              }} */}
             >
               © 2026 CafeConnect · Café de origen, sabor sin fronteras
             </p>
