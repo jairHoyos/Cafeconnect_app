@@ -346,10 +346,10 @@ export function CatalogView({ onLogout }: CatalogViewProps) {
 
       {/* Footer */}
       {/* Footer */}
-      {/*
+      
       <footer className="border-t border-[#3d2e22] bg-[#1a1410] mt-12">
         <div className="mx-auto max-w-7xl px-4 py-6 lg:px-8">
-          <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between"> */}
+          {/*<div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between"> */}
 
             {/* Logo 
             <div className="flex items-center gap-2">
@@ -361,7 +361,7 @@ export function CatalogView({ onLogout }: CatalogViewProps) {
 
             {/* Slogan shimmer */}
             <p
-              className="text-xs tracking-wide text-center"
+             {/*  className="text-xs tracking-wide text-center" */}
               style={{
                 background: "linear-gradient(90deg, #b45309, #fcd34d, #fff, #fcd34d, #b45309)",
                 backgroundSize: "200% auto",
