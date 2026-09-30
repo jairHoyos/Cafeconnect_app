@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/ico.svg',
+        url: '/ico.png',
         type: 'image/svg+xml',
       },
     ],
