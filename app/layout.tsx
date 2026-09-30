@@ -30,11 +30,11 @@ export const metadata: Metadata = {
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/ico.png',
+        url: '/iconn.png',
         type: 'image/svg+xml',
       },
     ],
-    apple: '/apple-ico.png',
+    apple: '/iconn.png',
   },
 }
 
