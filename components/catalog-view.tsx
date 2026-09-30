@@ -67,49 +67,9 @@ const COFFEE_PRODUCTS: CoffeeProduct[] = [
     origin: "Gama Media",
     roast: "Tradicional",
   },
-  {
-    id: 7,
-    name: "Café Rojo Apenas Cosechado",
-    description:
-      "Las cerezas de café recién recolectadas en su punto óptimo de maduración, de color rojo intenso y brillante. Representa la materia prima fresca del café, llena de azúcares naturales y potencial aromático. Ideal para procesos especiales o para apreciar el origen directo desde la planta.",
-    price: "5.800 COP",
-    image: "/images/cafe-rojo-cereza.jpg",
-    origin: "Gama Baja",
-    roast: "Cereza Roja",
-  },
-  {
-    id: 8,
-    name: "Café Despulpado",
-    description:
-      "Granos recién despulpados, con parte del mucílago adherido según el proceso (honey o lavado). Etapa clave donde se inicia la fermentación controlada que define gran parte del perfil de sabor final. Ofrece frescura y carácter único para quienes valoran el proceso completo del café.",
-    price: "12.500 COP",
-    image: "/images/cafe-despulpado.jpg",
-    origin: "Gama Media",
-    roast: "Despulpado",
-  },
-  {
-    id: 9,
-    name: "Café en Pergamino",
-    description:
-      "Granos secos aún cubiertos por el pergamino (cáscara seca y dura). Esta etapa intermedia protege el grano después del secado y antes del trillado. Ideal para almacenamiento prolongado manteniendo mejor la calidad y frescura del café.",
-    price: "8.900 COP",
-    image: "/images/cafe-pergamino.jpg",
-    origin: "Gama Media",
-    roast: "En Pergamino",
-  },
-  {
-    id: 10,
-    name: "Café Verde",
-    description:
-      "Granos de café sin tostar, limpios y seleccionados por tamaño y densidad. Representa el café en su estado natural listo para ser tostado según el perfil deseado. Perfecto para tostadores artesanales, exportación o quienes buscan controlar todo el proceso de tueste.",
-    price: "18.500 COP",
-    image: "/images/cafe-verde.jpg",
-    origin: "Gama Alta",
-    roast: "Café Verde",
-  },
 ]
 
-type RoastFilter = "Todos" | "Molido" | "Grano" | "Liofilizado" | "Pasilla" | "Tostado" | "Tradicional" | "Cereza Roja" | "Despulpado" | "En Pergamino" | "Café Verde"
+type RoastFilter = "Todos" | "Molido" | "Grano" | "Liofilizado" | "Pasilla" | "Tostado" | "Tradicional"
 type GamaFilter = "Todas" | "Gama Baja" | "Gama Media" | "Gama Alta"
 
 interface CatalogViewProps {
@@ -122,7 +82,7 @@ export function CatalogView({ onLogout }: CatalogViewProps) {
   const [activeGama, setActiveGama] = useState<GamaFilter>("Todas")
   const [gamaOpen, setGamaOpen] = useState(false)
 
-  const filters: RoastFilter[] = ["Todos", "Molido", "Grano", "Liofilizado", "Pasilla", "Tostado", "Tradicional", "Cereza Roja", "Despulpado", "En Pergamino", "Café Verde"]
+  const filters: RoastFilter[] = ["Todos", "Molido", "Grano", "Liofilizado", "Pasilla", "Tostado", "Tradicional"]
   const gamas: GamaFilter[] = ["Todas", "Gama Baja", "Gama Media", "Gama Alta"]
 
   const filtered = COFFEE_PRODUCTS.filter((p) => {
@@ -141,11 +101,14 @@ export function CatalogView({ onLogout }: CatalogViewProps) {
       {/* Header */}
       <header className="sticky top-0 z-50 border-b border-border/30 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-8">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary">
-              <Coffee className="h-5 w-5 text-primary-foreground" />
-            </div>
-            <span className="font-[var(--font-playfair)] text-xl font-bold text-foreground">
+          <div className="flex items-center gap-2.5">
+            <img
+              src="/images/cafeconnect-mark.svg"
+              alt=""
+              aria-hidden="true"
+              className="h-10 w-10 object-contain"
+            />
+            <span className="font-[var(--font-playfair)] text-xl font-bold tracking-tight text-foreground">
               CafeConnect
             </span>
           </div>
