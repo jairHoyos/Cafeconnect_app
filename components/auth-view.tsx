@@ -2,8 +2,7 @@
 
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
-import { Eye, EyeOff, ArrowRight } from "lucide-react"
-import { CafeConnectLogo } from "@/components/cafeconnect-logo"
+import { Coffee, Eye, EyeOff, ArrowRight } from "lucide-react"
 
 interface AuthViewProps {
   onLogin: () => void
@@ -65,7 +64,7 @@ export function AuthView({ onLogin, onGuest }: AuthViewProps) {
             }}
           >
             <div className="flex h-16 w-16 items-center justify-center rounded-[18px] bg-[#1e1108]">
-              <CafeConnectLogo size={32} className="text-amber-400" />
+              <Coffee className="h-8 w-8 text-amber-400" />
             </div>
           </div>
 
