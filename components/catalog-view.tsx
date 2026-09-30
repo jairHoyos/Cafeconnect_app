@@ -370,7 +370,7 @@ export function CatalogView({ onLogout }: CatalogViewProps) {
                 backgroundClip: "text",
                 animation: "shimmer 2.8s linear infinite",
               }} */}
-            >
+         {/*      >
               © 2026 CafeConnect · Café de origen, sabor sin fronteras
             </p>
 
@@ -380,3 +380,4 @@ export function CatalogView({ onLogout }: CatalogViewProps) {
     </div>
   )
 }
+*/}
