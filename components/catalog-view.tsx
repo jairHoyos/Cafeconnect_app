@@ -102,12 +102,11 @@ export function CatalogView({ onLogout }: CatalogViewProps) {
       <header className="sticky top-0 z-50 border-b border-border/30 bg-background/80 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 lg:px-8">
           <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary">
-              <Coffee className="h-5 w-5 text-primary-foreground" />
-            </div>
-            <span className="font-[var(--font-playfair)] text-xl font-bold text-foreground">
-              CafeConnect
-            </span>
+            <img
+              src="/images/cafeconnect-logo.png"
+              alt="CafeConnect"
+              className="h-10 w-auto object-contain"
+            />
           </div>
 
           <div className="hidden sm:flex items-center gap-2 flex-1 max-w-md mx-8">

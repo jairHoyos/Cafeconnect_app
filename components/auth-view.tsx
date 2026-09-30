@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
-import { Coffee, Eye, EyeOff, ArrowRight } from "lucide-react"
+import { Eye, EyeOff, ArrowRight } from "lucide-react"
 
 interface AuthViewProps {
   onLogin: () => void
@@ -52,25 +52,11 @@ export function AuthView({ onLogin, onGuest }: AuthViewProps) {
 
         {/* Logo con animación */}
         <div className="flex flex-col items-center gap-3 animate-logoEntry">
-          <div
-            className="animate-logoGlow"
-            style={{
-              padding: "2px",
-              borderRadius: "20px",
-              background:
-                "linear-gradient(90deg, #92400e, #fcd34d, #fff, #fcd34d, #92400e)",
-              backgroundSize: "200% auto",
-              animation: "shimmer 2.8s linear infinite",
-            }}
-          >
-            <div className="flex h-16 w-16 items-center justify-center rounded-[18px] bg-[#1e1108]">
-              <Coffee className="h-8 w-8 text-amber-400" />
-            </div>
-          </div>
-
-          <h1 className="font-[var(--font-playfair)] text-3xl font-bold tracking-tight text-white animate-fadeIn">
-            CafeConnect
-          </h1>
+          <img
+            src="/images/cafeconnect-logo.png"
+            alt="CafeConnect"
+            className="h-16 w-auto max-w-[240px] object-contain animate-logoGlow"
+          />
 
           <p className="text-center text-xs tracking-wide animate-fadeInUp"
             style={{
