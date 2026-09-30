@@ -350,7 +350,7 @@ export function CatalogView({ onLogout }: CatalogViewProps) {
         <div className="mx-auto max-w-7xl px-4 py-6 lg:px-8">
           <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-between">
 
-            {/* Logo */}
+            {/* Logo 
             <div className="flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-900/50 border border-[#6b3e20]">
                 <Coffee className="h-4 w-4 text-amber-500" />
