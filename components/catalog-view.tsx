@@ -355,7 +355,7 @@ export function CatalogView({ onLogout }: CatalogViewProps) {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-900/50 border border-[#6b3e20]">
                 <Coffee className="h-4 w-4 text-amber-500" />
               </div>
-              <span className="text-sm font-semibold text-amber-200">CafeConnect</span>
+           {/* <span className="text-sm font-semibold text-amber-200">CafeConnect</span>  FFFFFFS*/}
             </div>
 
             {/* Slogan shimmer */}
