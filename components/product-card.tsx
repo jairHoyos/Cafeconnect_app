@@ -65,38 +65,6 @@ const PRODUCT_COMMENTS: Record<number, Comment[]> = {
     { id: 3, author: "Miguel Angel", rating: 5, text: "Mi cafe del dia a dia. Nunca decepciona.", date: "Hace 1 semana" },
     { id: 4, author: "Gloria Espinoza", rating: 5, text: "El sabor que me transporta a la finca de mis abuelos. Pura nostalgia.", date: "Hace 2 semanas" },
   ],
-  // Cafe Rojo Cereza - 5 comentarios
-  7: [
-    { id: 1, author: "Hernan Cifuentes", rating: 5, text: "Increible poder ver el cafe en su estado mas puro. Las cerezas llegaron frescas y rojas.", date: "Hace 1 dia" },
-    { id: 2, author: "Liliana Mora", rating: 5, text: "Perfecto para hacer procesos honey en casa. La maduracion es optima.", date: "Hace 3 dias" },
-    { id: 3, author: "Julian Betancur", rating: 4, text: "Una experiencia unica conocer el origen del cafe desde la cereza. Muy educativo.", date: "Hace 1 semana" },
-    { id: 4, author: "Adriana Velasco", rating: 5, text: "Excelente para quienes queremos experimentar con fermentaciones propias.", date: "Hace 10 dias" },
-    { id: 5, author: "Gustavo Parra", rating: 4, text: "Precio muy accesible para empezar a conocer el proceso completo del cafe.", date: "Hace 2 semanas" },
-  ],
-  // Cafe Despulpado - 4 comentarios
-  8: [
-    { id: 1, author: "Mariana Restrepo", rating: 5, text: "El mucilago le da un dulzor natural impresionante. Excelente para proceso honey.", date: "Hace 2 dias" },
-    { id: 2, author: "Andres Felipe", rating: 4, text: "Me encanta poder controlar la fermentacion en casa. Granos de muy buena calidad.", date: "Hace 5 dias" },
-    { id: 3, author: "Catalina Arango", rating: 5, text: "Perfecto para los que queremos aprender sobre procesamiento de cafe artesanal.", date: "Hace 1 semana" },
-    { id: 4, author: "Roberto Jaramillo", rating: 5, text: "La frescura del grano despulpado es incomparable. Muy buen producto.", date: "Hace 2 semanas" },
-  ],
-  // Cafe en Pergamino - 5 comentarios
-  9: [
-    { id: 1, author: "Fernando Arbelaez", rating: 5, text: "Ideal para almacenar. El pergamino protege muy bien el grano y mantiene la frescura.", date: "Hace 1 dia" },
-    { id: 2, author: "Sandra Milena", rating: 4, text: "Compre para trillar en casa y tostar a mi gusto. Excelente calidad del grano.", date: "Hace 4 dias" },
-    { id: 3, author: "Luis Eduardo", rating: 5, text: "Perfecto para quienes tenemos trilladora. El grano sale limpio y uniforme.", date: "Hace 1 semana" },
-    { id: 4, author: "Carmen Lucia", rating: 5, text: "Muy buen precio para cafe de esta calidad. El pergamino esta bien seco.", date: "Hace 10 dias" },
-    { id: 5, author: "Jorge Ivan", rating: 4, text: "Excelente opcion para almacenamiento a largo plazo sin perder calidad.", date: "Hace 2 semanas" },
-  ],
-  // Cafe Verde - 6 comentarios
-  10: [
-    { id: 1, author: "David Castano", rating: 5, text: "Como tostador artesanal, este cafe verde es de los mejores que he trabajado. Notas florales increibles.", date: "Hace 1 dia" },
-    { id: 2, author: "Paola Andrea", rating: 5, text: "Perfecto para mi negocio de tostado. Granos uniformes y bien seleccionados.", date: "Hace 3 dias" },
-    { id: 3, author: "Nicolas Ospina", rating: 4, text: "Excelente para experimentar con diferentes perfiles de tueste. Muy versatil.", date: "Hace 6 dias" },
-    { id: 4, author: "Marcela Duque", rating: 5, text: "La densidad del grano es optima. Se nota que es cafe de altura. Premium.", date: "Hace 1 semana" },
-    { id: 5, author: "Alejandro Rios", rating: 5, text: "Compre para exportacion y mis clientes quedaron encantados. Calidad de exportacion.", date: "Hace 2 semanas" },
-    { id: 6, author: "Isabel Henao", rating: 4, text: "Muy buena seleccion por tamano y color. Sin defectos visibles. Recomendado.", date: "Hace 3 semanas" },
-  ],
 }
 
 export interface CoffeeProduct {
